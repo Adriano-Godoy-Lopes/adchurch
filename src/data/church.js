@@ -1,13 +1,15 @@
 const church = {
   name: "AD Vida Church",
+  slogan: "Uma igreja para toda a família",
+  theme: "2026 - O Ano da Colheita",
 
-  slogan: "Uma igreja para viver o amor de Deus",
+  address: "Rua Joaquim Afonso de Souza, 701",
 
-  yearTheme: "2026 - O Ano da Colheita",
+  phone: "",
 
-  address: "Rua Joaquim Afonso de Souza, 701 - Vila Celeste - São Paulo",
+  email: "",
 
-  instagram: "https://instagram.com/ad_vidaoficial",
+  instagram: "",
 
   youtube: "",
 
@@ -16,17 +18,17 @@ const church = {
   services: [
     {
       day: "Quinta-feira",
-      hour: "20:00"
+      hour: "20:00",
     },
     {
       day: "Domingo",
-      hour: "10:00"
+      hour: "10:00",
     },
     {
       day: "Domingo",
-      hour: "18:00"
-    }
-  ]
+      hour: "18:00",
+    },
+  ],
 };
 
 export default church;

@@ -1,3 +1,9 @@
-import { useState } from 'react';import { Play } from 'lucide-react';import { SectionTitle } from '../components/UI';
-const photos=[['Cultos','https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=800&q=80'],['Comunidade','https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=800&q=80'],['Adoração','https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80'],['Eventos','https://images.unsplash.com/photo-1478146896981-b80fe463b330?auto=format&fit=crop&w=800&q=80'],['Famílias','https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80'],['Serviço','https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=800&q=80']];
-export default function Gallery(){const [filter,setFilter]=useState('Todos');const cats=['Todos','Cultos','Comunidade','Eventos'];return <main className="container-site py-20"><SectionTitle eyebrow="Galeria" title="Momentos que celebramos juntos."/><div className="mb-8 flex flex-wrap gap-2">{cats.map(c=><button onClick={()=>setFilter(c)} className={`rounded-full px-4 py-2 text-xs font-semibold ${filter===c?'bg-gold text-ink':'bg-zinc-100 dark:bg-zinc-900'}`} key={c}>{c}</button>)}</div><div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{photos.filter(p=>filter==='Todos'||p[0]===filter).map(([cat,url])=><article className="group relative h-64 overflow-hidden rounded-2xl" key={url}><img className="photo transition duration-500 group-hover:scale-105" loading="lazy" src={url} alt={cat}/><span className="absolute bottom-3 left-3 rounded-full bg-black/60 px-3 py-1 text-xs text-white">{cat}</span></article>)}</div><section className="mt-14"><h2 className="text-2xl font-bold">Vídeos</h2><div className="mt-5 grid gap-4 md:grid-cols-2"><div className="flex aspect-video items-center justify-center rounded-2xl bg-ink text-gold"><Play/></div><div className="flex aspect-video items-center justify-center rounded-2xl bg-zinc-200 text-ink dark:bg-zinc-800 dark:text-white"><Play/></div></div></section></main>}
+export default function Home() {
+  return (
+    <section className="flex min-h-[70vh] items-center justify-center">
+      <h1 className="text-5xl font-bold">
+        Home
+      </h1>
+    </section>
+  );
+}

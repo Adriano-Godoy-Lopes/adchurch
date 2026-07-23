@@ -1,2 +1,9 @@
-import { events } from '../data/content';import { EventCard,SectionTitle } from '../components/UI';
-export default function Agenda(){return <main className="container-site py-20"><SectionTitle eyebrow="Agenda" title="Programe-se para viver tudo que Deus está fazendo."/><div className="grid gap-5 md:grid-cols-3">{events.map(e=><EventCard event={e} key={e.title}/>)}</div><p className="mt-10 text-xs text-zinc-500">Agenda sujeita a alterações. Acompanhe o Instagram para confirmações e novidades.</p></main>}
+export default function Home() {
+  return (
+    <section className="flex min-h-[70vh] items-center justify-center">
+      <h1 className="text-5xl font-bold">
+        Home
+      </h1>
+    </section>
+  );
+}

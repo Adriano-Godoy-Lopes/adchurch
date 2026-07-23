@@ -1,2 +1,9 @@
-import { Link } from 'react-router-dom';import { ministries } from '../data/content';import * as Icons from 'lucide-react';import { SectionTitle,Reveal } from '../components/UI';
-export default function Ministries(){return <main className="container-site py-20"><SectionTitle eyebrow="Conecte-se" title="Um lugar para servir, crescer e pertencer." copy="Descubra um ministério que combina com a sua fase de vida e seus dons."/><div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">{ministries.map(m=>{const Icon=Icons[m.icon];return <Reveal key={m.slug}><Link to={`/ministerios/${m.slug}`} className="group block rounded-2xl border border-zinc-200 p-6 transition hover:-translate-y-1 hover:border-gold dark:border-zinc-800"><Icon className="text-gold"/><p className="mt-5 text-xs font-bold uppercase tracking-wider text-gold">{m.tag}</p><h2 className="mt-2 text-xl font-bold">{m.name}</h2><p className="mt-3 text-sm leading-6 text-zinc-500 dark:text-zinc-400">{m.desc}</p></Link></Reveal>})}</div></main>}
+export default function Home() {
+  return (
+    <section className="flex min-h-[70vh] items-center justify-center">
+      <h1 className="text-5xl font-bold">
+        Home
+      </h1>
+    </section>
+  );
+}
