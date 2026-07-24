@@ -1,1 +1,14 @@
-[{"name":"Pr. Douglas Garcia","role":"Presidente","bio":"Líder comprometido em servir pessoas e anunciar o evangelho com graça, fé e simplicidade.","image":"https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1000&q=80"}]
+[
+  {
+    "id": 1,
+    "name": "Pastor Nome",
+    "role": "Pastor Presidente",
+    "description": "Uma breve descrição."
+  },
+  {
+    "id": 2,
+    "name": "Pastora Nome",
+    "role": "Pastora",
+    "description": "Uma breve descrição."
+  }
+]

@@ -1,9 +1,15 @@
+import Hero from "../components/home/Hero";
+import ServiceTimes from "../components/home/ServiceTimes";
+import AboutSection from "../components/home/AboutSection";
+import MinistriesSection from "../components/home/MinistriesSection";
+
 export default function Home() {
   return (
-    <section className="flex min-h-[70vh] items-center justify-center">
-      <h1 className="text-5xl font-bold">
-        Home
-      </h1>
-    </section>
+    <>
+      <Hero />
+      <ServiceTimes />
+      <AboutSection />
+      <MinistriesSection />
+    </>
   );
 }
