@@ -3,13 +3,14 @@ const church = {
   name: "AD Vida Church",
   shortName: "AD Vida",
   slogan: "Uma igreja para toda a família",
+  motto: "Paixão por vidas",
   tagline: "Vivendo o amor de Deus e transformando vidas.",
   yearTheme: { year: "2026", title: "O Ano da Colheita" },
 
   address: {
-    street: "",
+    street: "Rua Antônio Pinto Vieira, 135",
     district: "",
-    city: "",
+    city: "São Paulo - SP",
   },
 
   contact: {
@@ -19,7 +20,7 @@ const church = {
   },
 
   social: {
-    instagram: "",
+    instagram: "https://www.instagram.com/somosadvida/",
     youtube: "",
   },
 

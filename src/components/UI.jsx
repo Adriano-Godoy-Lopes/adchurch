@@ -93,6 +93,7 @@ export const PageHero = ({ eyebrow, title, copy, image }) => (
 
 export const EventCard = ({ event }) => (
   <article className="group flex h-full flex-col rounded-2xl border border-ink/10 bg-white p-7 transition duration-300 hover:-translate-y-1 hover:border-gold/50 hover:shadow-[0_20px_50px_-25px_rgba(15,13,10,0.35)]">
+    {event.image && <img src={event.image} alt={event.title} loading="lazy" className="-mx-7 -mt-7 mb-7 aspect-[4/5] w-[calc(100%+3.5rem)] max-w-none rounded-t-2xl object-cover" />}
     <span className="w-fit rounded-full bg-gold/15 px-3 py-1 text-[11px] font-semibold tracking-[0.18em] text-gold-dark uppercase">{event.type}</span>
     <h3 className="mt-5 text-2xl font-semibold">{event.title}</h3>
     {event.description && <p className="mt-3 text-sm leading-7 text-stone">{event.description}</p>}
@@ -100,6 +101,11 @@ export const EventCard = ({ event }) => (
       <span className="flex items-center gap-2"><CalendarDays size={16} className="text-gold-dark" />{event.date}</span>
       <span className="flex items-center gap-2"><Clock size={16} className="text-gold-dark" />{event.time}</span>
     </div>
+    {event.href && (
+      <a href={event.href} target="_blank" rel="noreferrer" className="mt-5 inline-flex w-fit items-center rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-gold hover:text-ink">
+        {event.cta}
+      </a>
+    )}
   </article>
 );
 

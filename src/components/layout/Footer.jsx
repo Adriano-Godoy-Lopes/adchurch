@@ -23,7 +23,7 @@ export default function Footer() {
 
         <div className="grid gap-12 py-14 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
           <div>
-            <Logo />
+            <Logo className="h-14 w-auto" />
             <p className="mt-6 max-w-xs text-sm leading-7 text-white/60">{church.slogan}. {church.tagline}</p>
             <SocialLinks className="mt-6" />
           </div>

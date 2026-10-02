@@ -1,12 +1,13 @@
+import church from "../../data/church";
 import { gallery } from "../../data/content";
 import { Button, Container, Reveal, SectionTitle } from "../UI";
 
 export const GalleryGrid = ({ items }) => (
-  <div className="columns-1 gap-4 sm:columns-2 lg:columns-3">
+  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
     {items.map((item, i) => (
-      <Reveal key={item.src} delay={(i % 3) * 0.06} className="mb-4 break-inside-avoid">
+      <Reveal key={item.src} delay={(i % 3) * 0.06}>
         <figure className="group overflow-hidden rounded-2xl bg-sand">
-          <img src={item.src} alt={item.alt} loading="lazy" className={`w-full object-cover transition duration-700 group-hover:scale-105 ${i % 3 === 1 ? "aspect-[4/5]" : "aspect-[4/3]"}`} />
+          <img src={item.src} alt={item.alt} loading="lazy" className="aspect-[4/5] w-full object-cover object-top transition duration-700 group-hover:scale-105" />
         </figure>
       </Reveal>
     ))}
@@ -19,7 +20,10 @@ export default function GallerySection() {
       <Container>
         <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
           <SectionTitle eyebrow="Galeria" title="Momentos da nossa família" />
-          <Button to="/galeria" variant="ghost" className="self-start lg:self-auto">Abrir galeria</Button>
+          <div className="flex flex-wrap gap-3 self-start lg:self-auto">
+            <Button to="/galeria" variant="ghost">Abrir galeria</Button>
+            {church.social.instagram && <Button to={church.social.instagram} variant="dark">Siga no Instagram</Button>}
+          </div>
         </div>
         <div className="mt-14">
           <GalleryGrid items={gallery.slice(0, 6)} />

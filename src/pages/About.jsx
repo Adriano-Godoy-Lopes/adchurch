@@ -13,11 +13,12 @@ export default function About() {
             <SectionTitle eyebrow="Quem somos" title="Uma igreja que ama a Deus e cuida de pessoas" />
             <div className="mt-8 space-y-5 text-base leading-8 text-stone">
               <p>Somos uma comunidade cristã formada por pessoas e famílias que desejam viver o evangelho, crescer na fé e servir ao próximo.</p>
+              <p>São três anos de história: vidas transformadas, famílias alcançadas e testemunhos da fidelidade de Deus. Até aqui nos ajudou o Senhor! Nossa missão segue a mesma: anunciar o Evangelho e alcançar vidas para Cristo.</p>
               <p>Em {church.yearTheme.year}, vivemos <strong className="text-ink">{church.yearTheme.title}</strong>.</p>
             </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <img src={images.worship} alt="Culto na AD Vida Church" className="aspect-[4/3] w-full rounded-3xl object-cover" />
+            <img src="/images/culto-louvor.jpg" alt="Louvor no culto da AD Vida Church" className="aspect-[4/3] w-full rounded-3xl object-cover object-[50%_25%]" />
           </Reveal>
         </Container>
       </section>

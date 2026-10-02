@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
 import church from "../../data/church";
-import { images } from "../../data/content";
+import { logoSrc } from "../Brand";
 import { Button, Container } from "../UI";
 
 const fade = (delay) => ({
@@ -14,16 +14,18 @@ const fade = (delay) => ({
 export default function Hero() {
   return (
     <section className="relative isolate flex min-h-[100svh] items-center overflow-hidden bg-ink text-white">
+      <div className="absolute inset-0 -z-30 bg-[radial-gradient(ellipse_at_75%_45%,rgba(201,161,74,0.22),transparent_60%)]" />
       <motion.img
-        src={images.hero}
+        src={logoSrc}
         alt=""
-        initial={{ scale: 1.08 }}
-        animate={{ scale: 1 }}
+        aria-hidden="true"
+        initial={{ opacity: 0, scale: 1.08 }}
+        animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 2.4, ease: "easeOut" }}
-        className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
+        className="pointer-events-none absolute top-1/2 left-1/2 -z-20 w-[150%] max-w-none -translate-x-1/2 -translate-y-1/2 opacity-20 sm:w-[110%] lg:left-auto lg:right-[-6%] lg:w-[62%] lg:translate-x-0 lg:opacity-40"
       />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-ink via-ink/80 to-ink/30" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-transparent to-ink/40" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-ink via-ink/85 to-ink/10 lg:via-ink/70" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-transparent to-ink/50" />
 
       <Container className="pt-32 pb-28">
         <div className="max-w-3xl">
@@ -33,11 +35,11 @@ export default function Hero() {
           </motion.span>
 
           <motion.h1 {...fade(0.25)} className="mt-8 text-5xl leading-[1.05] font-semibold sm:text-6xl lg:text-7xl">
-            Uma igreja para toda a <em className="text-gold-light">família</em>.
+            Paixão por <em className="text-gold-light">vidas</em>.
           </motion.h1>
 
           <motion.p {...fade(0.4)} className="mt-7 max-w-xl text-lg leading-8 text-white/75 sm:text-xl">
-            {church.tagline}
+            {church.slogan}. {church.tagline}
           </motion.p>
 
           <motion.div {...fade(0.55)} className="mt-10 flex flex-col gap-3 sm:flex-row">

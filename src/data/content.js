@@ -28,14 +28,22 @@ export const ministries = [
 ];
 
 export const events = [
-  { title: "Culto de Celebração", date: "Todo domingo", time: "17h00", type: "Culto" },
-  { title: "Culto de Ensino", date: "Toda quinta-feira", time: "19h00", type: "Culto" },
-  { title: "Conexão Jovem", date: "Em breve", time: "A confirmar", type: "Evento" },
+  { title: "Culto dos Jovens", date: "Sábado, 03 de outubro", time: "18h00", type: "Jovens", description: "Uma noite especial na presença de Deus. Não venha sozinho: convide mais um!" },
+  {
+    title: "Conferência de Mulheres — Lapidadas",
+    date: "23 e 24 de outubro",
+    time: "19h30 · 18h30",
+    type: "Conferência",
+    description: "3ª Conferência de Mulheres da AD Vida Church: dois dias de palavra, louvor e comunhão na presença do Senhor.",
+    image: "/images/conferencia-mulheres.jpg",
+    href: "https://docs.google.com/forms/d/e/1FAIpQLSffiV5BZjU41xCXJNo6RARPQY5fMp1u3XwfJfYcFfpQXaykNg/viewform",
+    cta: "Fazer inscrição",
+  },
 ];
 
 export const pastors = [
-  { name: "Pr. Douglas Garcia", role: "Presidente", bio: "Líder comprometido em servir pessoas e anunciar o evangelho com graça, fé e simplicidade.", image: img("photo-1560250097-0b93528c311a", 1000) },
-  { name: "Pra. Barbara Garcia", role: "Pastora" },
+  { name: "Pr. Douglas Garcia", role: "Pastor Sênior", bio: "“Em tudo Deus tem um propósito.”", image: "/images/pr-douglas-garcia.jpg", instagram: "https://www.instagram.com/pastordouglasgarcia/" },
+  { name: "Pra. Barbara Garcia", role: "Pastora", bio: "Formada em Administração e Teologia.", image: "/images/pra-barbara-garcia.jpg", instagram: "https://www.instagram.com/barbaragarciia_/" },
 ];
 
 export const messages = [
@@ -44,13 +52,7 @@ export const messages = [
 ];
 
 export const gallery = [
-  { src: images.worship, alt: "Momento de louvor" },
-  { src: images.community, alt: "Comunhão entre irmãos" },
-  { src: images.bible, alt: "Leitura da Bíblia" },
-  { src: images.fellowship, alt: "Encontro de amigas" },
-  { src: images.sanctuary, alt: "Templo" },
-  { src: images.study, alt: "Estudo bíblico" },
-  { src: img("photo-1529156069898-49953e39b3ac", 1200), alt: "Jovens reunidos" },
-  { src: images.hero, alt: "Adoração" },
-  { src: images.bibleTable, alt: "Bíblia aberta" },
+  { src: "/images/culto-louvor.jpg", alt: "Louvor no culto da AD Vida Church" },
+  { src: "/images/culto-oracao.jpg", alt: "Momento de oração na AD Vida Church" },
+  { src: "/images/culto-pregacao.jpg", alt: "Pregação da Palavra na AD Vida Church" },
 ];

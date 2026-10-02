@@ -24,7 +24,7 @@ export default function Agenda() {
           </div>
 
           <SectionTitle eyebrow="Destaques" title="Próximos eventos" className="mt-24" />
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <div className="mt-12 grid items-start gap-6 md:grid-cols-2">
             {events.map((e, i) => (
               <Reveal key={e.title} delay={i * 0.08}><EventCard event={e} /></Reveal>
             ))}
