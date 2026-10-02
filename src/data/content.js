@@ -35,6 +35,7 @@ export const events = [
 
 export const pastors = [
   { name: "Pr. Douglas Garcia", role: "Presidente", bio: "Líder comprometido em servir pessoas e anunciar o evangelho com graça, fé e simplicidade.", image: img("photo-1560250097-0b93528c311a", 1000) },
+  { name: "Pra. Barbara Garcia", role: "Pastora" },
 ];
 
 export const messages = [
