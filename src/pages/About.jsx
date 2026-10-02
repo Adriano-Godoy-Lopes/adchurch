@@ -1,7 +1,6 @@
 import church from "../data/church";
 import { images, values } from "../data/content";
 import { Button, Container, icons, PageHero, Reveal, SectionTitle } from "../components/UI";
-import PrayerCta from "../components/home/PrayerCta";
 
 export default function About() {
   return (
@@ -46,7 +45,6 @@ export default function About() {
         </Container>
       </section>
 
-      <PrayerCta />
     </>
   );
 }

@@ -94,10 +94,10 @@ export default function Header() {
 
           <div className="flex items-center gap-3">
             <Link
-              to="/oracao"
+              to="/contato"
               className="hidden rounded-full bg-gold px-5 py-2.5 text-sm font-semibold text-ink transition hover:bg-gold-light sm:inline-flex"
             >
-              Pedido de oração
+              Planeje sua visita
             </Link>
             <button
               type="button"
@@ -134,8 +134,8 @@ export default function Header() {
                   {link.name}
                 </NavLink>
               ))}
-              <Link to="/oracao" className="mt-8 rounded-full bg-gold px-6 py-4 text-center font-semibold text-ink">
-                Pedido de oração
+              <Link to="/contato" className="mt-8 rounded-full bg-gold px-6 py-4 text-center font-semibold text-ink">
+                Planeje sua visita
               </Link>
               <p className="mt-8 text-sm leading-7 text-white/50">
                 {fullAddress && (

@@ -1,7 +1,6 @@
 import { pastors, images } from "../data/content";
 import { Container, PageHero } from "../components/UI";
 import { PastorFeature } from "../components/home/PastorsSection";
-import PrayerCta from "../components/home/PrayerCta";
 
 export default function Pastors() {
   return (
@@ -14,7 +13,6 @@ export default function Pastors() {
           ))}
         </Container>
       </section>
-      <PrayerCta />
     </>
   );
 }
