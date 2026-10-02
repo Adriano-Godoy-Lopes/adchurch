@@ -6,10 +6,10 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Pastors from "./pages/Pastors";
 import Ministries from "./pages/Ministries";
+import Ministry from "./pages/Ministry";
 import Agenda from "./pages/Agenda";
 import Gallery from "./pages/Gallery";
 import Messages from "./pages/Messages";
-import Prayer from "./pages/Prayer";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
@@ -22,14 +22,13 @@ function App() {
           <Route path="/sobre" element={<About />} />
           <Route path="/pastores" element={<Pastors />} />
           <Route path="/ministerios" element={<Ministries />} />
+          <Route path="/ministerios/:slug" element={<Ministry />} />
           <Route path="/agenda" element={<Agenda />} />
           <Route path="/galeria" element={<Gallery />} />
           <Route path="/mensagens" element={<Messages />} />
-          <Route path="/oracao" element={<Prayer />} />
           <Route path="/contato" element={<Contact />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
-
-        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

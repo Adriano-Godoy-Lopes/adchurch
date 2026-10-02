@@ -1,66 +1,48 @@
-import { Link } from "react-router-dom";
-import { ArrowRight, Heart, Users, BookOpen } from "lucide-react";
-
-const values = [
-  {
-    icon: Heart,
-    title: "Amor",
-    description: "Cuidamos de pessoas e famílias com fé, respeito e acolhimento.",
-  },
-  {
-    icon: Users,
-    title: "Comunhão",
-    description: "Construímos relacionamentos e caminhamos juntos.",
-  },
-  {
-    icon: BookOpen,
-    title: "Palavra",
-    description: "Ensinamos a Bíblia de maneira clara e transformadora.",
-  },
-];
+import { values, images } from "../../data/content";
+import { Button, Container, icons, Reveal, SectionTitle } from "../UI";
 
 export default function AboutSection() {
   return (
-    <section className="bg-neutral-950 px-6 py-24 text-white">
-      <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-2 lg:items-center">
+    <section className="overflow-hidden bg-white py-24 sm:py-32">
+      <Container className="grid items-center gap-16 lg:grid-cols-2 lg:gap-20">
+        <Reveal className="relative">
+          <img src={images.community} alt="Comunidade AD Vida reunida" className="aspect-[4/5] w-full rounded-3xl object-cover sm:aspect-[5/5] lg:w-[85%]" />
+          <img src={images.bible} alt="Bíblia aberta" className="absolute -right-2 -bottom-10 hidden w-[46%] rounded-2xl border-8 border-white object-cover shadow-2xl sm:block lg:right-0" />
+          <div className="absolute top-8 -left-3 rounded-2xl bg-gold px-6 py-5 text-ink shadow-xl sm:left-6">
+            <p className="font-serif text-4xl font-semibold">+ Fé</p>
+            <p className="text-xs font-semibold tracking-[0.18em] uppercase">+ Família · + Propósito</p>
+          </div>
+        </Reveal>
+
         <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.35em] text-amber-400">
-            Quem somos
-          </p>
+          <SectionTitle
+            eyebrow="Quem somos"
+            title="Uma igreja que ama a Deus e cuida de pessoas"
+            copy="Somos uma comunidade cristã formada por pessoas e famílias que desejam viver o evangelho, crescer na fé e servir ao próximo"
+          />
 
-          <h2 className="mt-4 text-4xl font-bold leading-tight md:text-5xl">
-            Uma igreja que ama Deus e cuida de pessoas
-          </h2>
+          <div className="mt-10 grid gap-6">
+            {values.map(({ icon, title, description }, i) => {
+              const Icon = icons[icon];
+              return (
+                <Reveal key={title} delay={i * 0.06}>
+                  <div className="flex gap-4">
+                    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-gold/40 text-gold-dark">
+                      <Icon size={19} />
+                    </span>
+                    <div>
+                      <h3 className="font-sans text-base font-semibold">{title}</h3>
+                      <p className="mt-1.5 text-sm leading-6 text-stone">{description}</p>
+                    </div>
+                  </div>
+                </Reveal>
+              );
+            })}
+          </div>
 
-          <p className="mt-6 max-w-xl text-lg leading-8 text-neutral-300">
-            Somos uma comunidade cristã formada por pessoas e famílias que
-            desejam viver o evangelho, crescer na fé e servir ao próximo.
-          </p>
-
-          <Link
-            to="/sobre"
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-amber-400 px-7 py-3 font-semibold text-neutral-950 transition hover:bg-amber-300"
-          >
-            Conheça nossa história
-            <ArrowRight size={20} />
-          </Link>
+          <Button to="/sobre" variant="dark" className="mt-12">Conheça nossa história</Button>
         </div>
-
-        <div className="grid gap-5 sm:grid-cols-3 lg:grid-cols-1">
-          {values.map(({ icon: Icon, title, description }) => (
-            <article
-              key={title}
-              className="rounded-3xl border border-white/10 bg-white/5 p-6"
-            >
-              <Icon className="text-amber-400" size={32} />
-
-              <h3 className="mt-4 text-xl font-bold">{title}</h3>
-
-              <p className="mt-2 leading-7 text-neutral-400">{description}</p>
-            </article>
-          ))}
-        </div>
-      </div>
+      </Container>
     </section>
   );
 }

@@ -1,88 +1,52 @@
 import { Link } from "react-router-dom";
-import {
-  Baby,
-  Music,
-  Users,
-  Heart,
-  Handshake,
-  Church,
-} from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
-const ministries = [
-  {
-    title: "Infantil",
-    description: "Ensino bíblico para crianças.",
-    icon: Baby,
-  },
-  {
-    title: "Louvor",
-    description: "Adoração através da música.",
-    icon: Music,
-  },
-  {
-    title: "Jovens",
-    description: "Comunhão e crescimento espiritual.",
-    icon: Users,
-  },
-  {
-    title: "Casais",
-    description: "Fortalecendo famílias.",
-    icon: Heart,
-  },
-  {
-    title: "Evangelismo",
-    description: "Compartilhando o Evangelho.",
-    icon: Handshake,
-  },
-  {
-    title: "Intercessão",
-    description: "Oração e cuidado espiritual.",
-    icon: Church,
-  },
-];
+import { ministries } from "../../data/content";
+import { Button, Container, icons, Reveal, SectionTitle } from "../UI";
+
+export const MinistryCard = ({ ministry, className = "" }) => {
+  const Icon = icons[ministry.icon];
+  return (
+    <Link
+      to={`/ministerios/${ministry.slug}`}
+      className={`group relative isolate flex min-h-[340px] flex-col justify-end overflow-hidden rounded-2xl bg-ink p-7 text-white ${className}`}
+    >
+      <img src={ministry.image} alt="" loading="lazy" className="absolute inset-0 -z-20 h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-ink/60 to-ink/5" />
+      <span className="absolute top-6 right-6 grid h-10 w-10 place-items-center rounded-full bg-white/10 backdrop-blur transition group-hover:bg-gold group-hover:text-ink">
+        <ArrowUpRight size={18} />
+      </span>
+      <span className="flex items-center gap-2 text-[11px] font-semibold tracking-[0.2em] text-gold-light uppercase">
+        {Icon && <Icon size={14} />}
+        {ministry.tag}
+      </span>
+      <h3 className="mt-3 text-3xl font-semibold">{ministry.name}</h3>
+      <p className="mt-2 max-w-sm text-sm leading-6 text-white/70">{ministry.desc}</p>
+    </Link>
+  );
+};
 
 export default function MinistriesSection() {
   return (
-    <section className="bg-white py-24 px-6">
-      <div className="mx-auto max-w-7xl">
-        <div className="text-center mb-14">
-          <p className="uppercase tracking-[0.35em] text-sm font-semibold text-amber-500">
-            Ministérios
-          </p>
-
-          <h2 className="mt-4 text-4xl font-bold text-neutral-900">
-            Servindo com propósito
-          </h2>
+    <section className="bg-cream py-24 sm:py-32">
+      <Container>
+        <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
+          <SectionTitle
+            eyebrow="Ministérios"
+            title="Um lugar para você servir e pertencer"
+            copy="Em cada fase da vida, existe um grupo para caminhar junto com você."
+          />
+          <Button to="/ministerios" variant="ghost" className="self-start lg:self-auto">Todos os ministérios</Button>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {ministries.map(({ title, description, icon: Icon }) => (
-            <article
-              key={title}
-              className="rounded-3xl border border-neutral-200 p-8 shadow-sm transition hover:-translate-y-2 hover:shadow-xl"
-            >
-              <Icon className="text-amber-500" size={40} />
-
-              <h3 className="mt-5 text-2xl font-bold">
-                {title}
-              </h3>
-
-              <p className="mt-3 text-neutral-600">
-                {description}
-              </p>
-            </article>
+        <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {ministries.slice(0, 6).map((ministry, i) => (
+            <Reveal key={ministry.slug} delay={(i % 3) * 0.08}>
+              <MinistryCard ministry={ministry} />
+            </Reveal>
           ))}
         </div>
-
-        <div className="mt-12 text-center">
-          <Link
-            to="/ministerios"
-            className="rounded-full bg-amber-400 px-8 py-4 font-semibold text-neutral-900 transition hover:bg-amber-300"
-          >
-            Conheça todos os ministérios
-          </Link>
-        </div>
-      </div>
+      </Container>
     </section>
   );
 }
