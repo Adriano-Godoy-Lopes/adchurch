@@ -1,40 +1,41 @@
-// Dados institucionais centralizados: atualize endereço, contatos e redes aqui.
+// Dados institucionais centralizados. Campos vazios ficam ocultos no site.
 const church = {
   name: "AD Vida Church",
   shortName: "AD Vida",
   slogan: "Uma igreja para toda a família",
   tagline: "Vivendo o amor de Deus e transformando vidas.",
-  yearTheme: { year: "2026", title: "O Ano da Colheita", verse: "“A seara é realmente grande.” — Mateus 9:37" },
+  yearTheme: { year: "2026", title: "O Ano da Colheita" },
 
   address: {
-    street: "Rua da Igreja, 100",
-    district: "Centro",
-    city: "São Paulo - SP",
+    street: "",
+    district: "",
+    city: "",
   },
 
   contact: {
-    phone: "(11) 90000-0000",
-    whatsapp: "5511900000000",
-    email: "contato@advidachurch.com.br",
+    phone: "",
+    whatsapp: "",
+    email: "",
   },
 
   social: {
-    instagram: "#",
-    youtube: "#",
-    facebook: "#",
+    instagram: "",
+    youtube: "",
   },
 
   services: [
     { day: "Domingo", name: "Escola Bíblica", time: "10:00", description: "Estudo da Palavra para todas as idades." },
     { day: "Domingo", name: "Culto da Família", time: "18:00", description: "Celebração com louvor, Palavra e comunhão." },
-    { day: "Quinta-feira", name: "Culto de Ensino", time: "20:00", description: "Ensino bíblico profundo e aplicado à vida." },
+    { day: "Quinta-feira", name: "Culto de Ensino", time: "20:00", description: "Ensino bíblico aplicado à vida." },
   ],
 };
 
-export const fullAddress = `${church.address.street} — ${church.address.district}, ${church.address.city}`;
+const { street, district, city } = church.address;
+export const fullAddress = [street, [district, city].filter(Boolean).join(", ")].filter(Boolean).join(" — ");
 export const whatsappLink = (text = "Olá! Gostaria de saber mais sobre a AD Vida Church.") =>
-  `https://wa.me/${church.contact.whatsapp}?text=${encodeURIComponent(text)}`;
-export const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(fullAddress)}`;
-export const mapsEmbed = `https://maps.google.com/maps?q=${encodeURIComponent(fullAddress)}&output=embed`;
+  church.contact.whatsapp ? `https://wa.me/${church.contact.whatsapp}?text=${encodeURIComponent(text)}` : null;
+export const mapsLink = fullAddress ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(fullAddress)}` : null;
+export const mapsEmbed = fullAddress ? `https://maps.google.com/maps?q=${encodeURIComponent(fullAddress)}&output=embed` : null;
+export const socialLinks = Object.entries(church.social).filter(([, href]) => href);
 
 export default church;

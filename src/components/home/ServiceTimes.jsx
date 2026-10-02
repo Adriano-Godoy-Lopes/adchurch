@@ -1,4 +1,5 @@
-import { CalendarDays, Clock, MapPin, Navigation } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ArrowRight, CalendarDays, Clock, MapPin, Navigation } from "lucide-react";
 
 import church, { fullAddress, mapsLink } from "../../data/church";
 import { Button, Container, Reveal, SectionTitle } from "../UI";
@@ -42,10 +43,16 @@ export default function ServiceTimes() {
                 <MapPin size={22} />
               </span>
               <h3 className="mt-8 text-2xl font-semibold">Primeira vez aqui?</h3>
-              <p className="mt-3 text-sm leading-7 text-white/65">{fullAddress}</p>
-              <a href={mapsLink} target="_blank" rel="noreferrer" className="mt-auto inline-flex items-center gap-2 pt-8 text-sm font-semibold text-gold-light transition hover:text-gold">
-                <Navigation size={16} /> Como chegar
-              </a>
+              <p className="mt-3 text-sm leading-7 text-white/65">{fullAddress || "Fale com a gente e planeje sua visita. Será uma alegria receber você."}</p>
+              {mapsLink ? (
+                <a href={mapsLink} target="_blank" rel="noreferrer" className="mt-auto inline-flex items-center gap-2 pt-8 text-sm font-semibold text-gold-light transition hover:text-gold">
+                  <Navigation size={16} /> Como chegar
+                </a>
+              ) : (
+                <Link to="/contato" className="mt-auto inline-flex items-center gap-2 pt-8 text-sm font-semibold text-gold-light transition hover:text-gold">
+                  Planeje sua visita <ArrowRight size={16} />
+                </Link>
+              )}
             </article>
           </Reveal>
         </div>

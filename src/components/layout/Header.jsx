@@ -3,7 +3,7 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { Clock, MapPin, Menu, X } from "lucide-react";
 
-import church, { mapsLink } from "../../data/church";
+import church, { fullAddress, mapsLink, socialLinks } from "../../data/church";
 import { Logo, SocialIcon } from "../Brand";
 import { Container } from "../UI";
 
@@ -45,18 +45,20 @@ export default function Header() {
       <div className={`hidden border-b border-white/10 bg-ink text-xs text-white/60 transition-all duration-300 md:block ${scrolled ? "h-0 overflow-hidden border-transparent" : "h-10"}`}>
         <Container className="flex h-10 items-center justify-between">
           <div className="flex items-center gap-6">
-            <a href={mapsLink} target="_blank" rel="noreferrer" className="flex items-center gap-2 transition hover:text-gold-light">
-              <MapPin size={14} className="text-gold" />
-              {church.address.street} — {church.address.city}
-            </a>
+            {fullAddress && (
+              <a href={mapsLink} target="_blank" rel="noreferrer" className="flex items-center gap-2 transition hover:text-gold-light">
+                <MapPin size={14} className="text-gold" />
+                {fullAddress}
+              </a>
+            )}
             <span className="flex items-center gap-2">
               <Clock size={14} className="text-gold" />
               Cultos: {nextService}
             </span>
           </div>
           <div className="flex items-center gap-4">
-            {Object.entries(church.social).map(([name, href]) => (
-              <a key={name} href={href} aria-label={name} className="transition hover:text-gold-light">
+            {socialLinks.map(([name, href]) => (
+              <a key={name} href={href} target="_blank" rel="noreferrer" aria-label={name} className="transition hover:text-gold-light">
                 <SocialIcon name={name} size={15} />
               </a>
             ))}
@@ -136,8 +138,12 @@ export default function Header() {
                 Pedido de oração
               </Link>
               <p className="mt-8 text-sm leading-7 text-white/50">
-                {church.address.street} — {church.address.city}
-                <br />
+                {fullAddress && (
+                  <>
+                    {fullAddress}
+                    <br />
+                  </>
+                )}
                 Cultos: {nextService}
               </p>
             </Container>

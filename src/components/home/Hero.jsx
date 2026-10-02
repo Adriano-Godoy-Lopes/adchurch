@@ -37,7 +37,7 @@ export default function Hero() {
           </motion.h1>
 
           <motion.p {...fade(0.4)} className="mt-7 max-w-xl text-lg leading-8 text-white/75 sm:text-xl">
-            Somos a {church.name}: uma comunidade que ama a Deus, vive a Palavra e cuida de pessoas. Venha como você está.
+            {church.tagline}
           </motion.p>
 
           <motion.div {...fade(0.55)} className="mt-10 flex flex-col gap-3 sm:flex-row">

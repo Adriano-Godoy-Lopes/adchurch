@@ -13,9 +13,8 @@ export const images = {
 
 export const values = [
   { icon: "Heart", title: "Amor", description: "Cuidamos de pessoas e famílias com fé, respeito e acolhimento." },
-  { icon: "Users", title: "Comunhão", description: "Construímos relacionamentos verdadeiros e caminhamos juntos." },
-  { icon: "BookOpen", title: "Palavra", description: "Ensinamos a Bíblia de maneira clara, fiel e transformadora." },
-  { icon: "HandHeart", title: "Serviço", description: "Servimos nossa cidade com generosidade e amor prático." },
+  { icon: "Users", title: "Comunhão", description: "Construímos relacionamentos e caminhamos juntos." },
+  { icon: "BookOpen", title: "Palavra", description: "Ensinamos a Bíblia de maneira clara e transformadora." },
 ];
 
 export const ministries = [
@@ -29,13 +28,13 @@ export const ministries = [
 ];
 
 export const events = [
-  { title: "Culto da Família", date: "Todo domingo", time: "18h00", type: "Culto", description: "Nosso principal encontro semanal, para toda a família." },
-  { title: "Culto de Ensino", date: "Toda quinta-feira", time: "20h00", type: "Culto", description: "Uma noite dedicada ao estudo da Palavra." },
-  { title: "Conexão Jovem", date: "Em breve", time: "A confirmar", type: "Evento", description: "Encontro especial da nova geração com louvor e comunhão." },
+  { title: "Culto de Celebração", date: "Todo domingo", time: "17h00", type: "Culto" },
+  { title: "Culto de Ensino", date: "Toda quinta-feira", time: "19h00", type: "Culto" },
+  { title: "Conexão Jovem", date: "Em breve", time: "A confirmar", type: "Evento" },
 ];
 
 export const pastors = [
-  { name: "Pr. Douglas Garcia", role: "Pastor Presidente", bio: "Líder comprometido em servir pessoas e anunciar o evangelho com graça, fé e simplicidade.", image: img("photo-1560250097-0b93528c311a", 1000) },
+  { name: "Pr. Douglas Garcia", role: "Presidente", bio: "Líder comprometido em servir pessoas e anunciar o evangelho com graça, fé e simplicidade.", image: img("photo-1560250097-0b93528c311a", 1000) },
 ];
 
 export const messages = [

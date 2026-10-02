@@ -1,3 +1,4 @@
+import { whatsappLink } from "../data/church";
 import { images } from "../data/content";
 import { contactService } from "../services/api";
 import { Container, PageHero, Reveal, SectionTitle } from "../components/UI";
@@ -10,7 +11,7 @@ export default function Contact() {
       <PageHero eyebrow="Contato" title="Vamos conversar" copy="Tem alguma dúvida, quer planejar sua visita ou conhecer melhor a igreja? Fale com a gente." image={images.fellowship} />
       <section className="bg-cream py-24 sm:py-32">
         <Container className="grid gap-14 lg:grid-cols-[0.8fr_1.2fr]">
-          <SectionTitle eyebrow="Fale conosco" title="Responderemos o mais breve possível" copy="Preencha o formulário ou, se preferir, chame no WhatsApp. Será um prazer atender você." />
+          <SectionTitle eyebrow="Fale conosco" title="Responderemos o mais breve possível" copy={`Preencha o formulário${whatsappLink() ? " ou, se preferir, chame no WhatsApp" : ""}. Será um prazer atender você.`} />
           <Reveal className="rounded-3xl border border-ink/10 bg-white p-6 shadow-[0_30px_80px_-50px_rgba(15,13,10,0.5)] sm:p-10">
             <ContactForm
               submit={contactService.create}

@@ -64,7 +64,13 @@ export default function ContactForm({ fields, submit, submitLabel, successTitle,
       {status === "error" && (
         <p className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 sm:col-span-2">
           Não foi possível enviar agora.{" "}
-          <a href={whatsappLink(whatsappText)} target="_blank" rel="noreferrer" className="font-semibold underline">Fale conosco pelo WhatsApp</a>.
+          {whatsappLink(whatsappText) ? (
+            <>
+              <a href={whatsappLink(whatsappText)} target="_blank" rel="noreferrer" className="font-semibold underline">Fale conosco pelo WhatsApp</a>.
+            </>
+          ) : (
+            "Tente novamente em alguns instantes."
+          )}
         </p>
       )}
 

@@ -1,4 +1,4 @@
-import church from "../data/church";
+import church, { socialLinks } from "../data/church";
 
 export const LogoMark = ({ className = "h-10 w-10" }) => (
   <svg viewBox="0 0 48 48" className={className} aria-hidden="true">
@@ -31,7 +31,6 @@ const paths = {
       <path d="m10 9.5 5 2.5-5 2.5z" fill="currentColor" />
     </>
   ),
-  facebook: <path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H7v4h3v6h4v-6h3l1-4h-4V8.5c0-.3.2-.5.5-.5" />,
 };
 
 export const SocialIcon = ({ name, size = 18 }) => (
@@ -40,12 +39,15 @@ export const SocialIcon = ({ name, size = 18 }) => (
   </svg>
 );
 
-export const SocialLinks = ({ className = "" }) => (
+export const SocialLinks = ({ className = "" }) =>
+  socialLinks.length > 0 && (
   <div className={`flex gap-3 ${className}`}>
-    {Object.entries(church.social).map(([name, href]) => (
+    {socialLinks.map(([name, href]) => (
       <a
         key={name}
         href={href}
+        target="_blank"
+        rel="noreferrer"
         aria-label={name}
         className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white/80 transition hover:border-gold hover:text-gold-light"
       >

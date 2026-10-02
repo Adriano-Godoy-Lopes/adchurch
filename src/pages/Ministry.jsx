@@ -12,6 +12,7 @@ export default function Ministry() {
   const ministry = ministries.find((m) => m.slug === slug);
   if (!ministry) return <NotFound />;
   const others = ministries.filter((m) => m.slug !== slug).slice(0, 3);
+  const whatsapp = whatsappLink(`Olá! Quero participar do ministério ${ministry.name}.`);
 
   return (
     <>
@@ -23,13 +24,13 @@ export default function Ministry() {
               <ArrowLeft size={16} /> Todos os ministérios
             </Link>
             <h2 className="mt-8 text-3xl font-semibold sm:text-4xl">Faça parte do ministério {ministry.name}</h2>
-            <p className="mt-6 text-base leading-8 text-stone">{ministry.desc} Nossos encontros acontecem ao longo do mês, com momentos de comunhão, estudo da Palavra e serviço. Fale com a liderança para saber os próximos passos.</p>
+            <p className="mt-6 text-base leading-8 text-stone">{ministry.desc} Fale com a liderança para saber os próximos passos.</p>
           </Reveal>
           <Reveal delay={0.1}>
             <div className="rounded-2xl bg-ink p-8 text-white">
               <h3 className="text-2xl font-semibold">Quero participar</h3>
               <p className="mt-3 text-sm leading-7 text-white/65">Envie uma mensagem e nossa equipe entrará em contato com você.</p>
-              <Button to={whatsappLink(`Olá! Quero participar do ministério ${ministry.name}.`)} className="mt-8 w-full">Falar no WhatsApp</Button>
+              <Button to={whatsapp ?? "/contato"} className="mt-8 w-full">{whatsapp ? "Falar no WhatsApp" : "Falar com a equipe"}</Button>
             </div>
           </Reveal>
         </Container>

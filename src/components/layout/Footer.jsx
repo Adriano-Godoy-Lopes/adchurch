@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone, Send } from "lucide-react";
 
 import church, { fullAddress, mapsLink, whatsappLink } from "../../data/church";
 import { Logo, SocialLinks } from "../Brand";
@@ -17,7 +17,7 @@ export default function Footer() {
           </div>
           <div className="flex flex-wrap gap-3">
             <Button to="/contato">Planeje sua visita</Button>
-            <Button to={whatsappLink()} variant="outline">Fale no WhatsApp</Button>
+            {whatsappLink() && <Button to={whatsappLink()} variant="outline">Fale no WhatsApp</Button>}
           </div>
         </div>
 
@@ -52,9 +52,10 @@ export default function Footer() {
           <div>
             <h3 className="font-sans text-xs font-semibold tracking-[0.24em] text-gold-light uppercase">Contato</h3>
             <ul className="mt-5 space-y-4 text-sm text-white/70">
-              <li><a href={mapsLink} target="_blank" rel="noreferrer" className="flex gap-3 transition hover:text-gold-light"><MapPin size={17} className="mt-0.5 shrink-0 text-gold" />{fullAddress}</a></li>
-              <li><a href={whatsappLink()} target="_blank" rel="noreferrer" className="flex gap-3 transition hover:text-gold-light"><Phone size={17} className="mt-0.5 shrink-0 text-gold" />{church.contact.phone}</a></li>
-              <li><a href={`mailto:${church.contact.email}`} className="flex gap-3 break-all transition hover:text-gold-light"><Mail size={17} className="mt-0.5 shrink-0 text-gold" />{church.contact.email}</a></li>
+              {fullAddress && <li><a href={mapsLink} target="_blank" rel="noreferrer" className="flex gap-3 transition hover:text-gold-light"><MapPin size={17} className="mt-0.5 shrink-0 text-gold" />{fullAddress}</a></li>}
+              {church.contact.phone && <li><a href={whatsappLink() ?? `tel:${church.contact.phone}`} target="_blank" rel="noreferrer" className="flex gap-3 transition hover:text-gold-light"><Phone size={17} className="mt-0.5 shrink-0 text-gold" />{church.contact.phone}</a></li>}
+              {church.contact.email && <li><a href={`mailto:${church.contact.email}`} className="flex gap-3 break-all transition hover:text-gold-light"><Mail size={17} className="mt-0.5 shrink-0 text-gold" />{church.contact.email}</a></li>}
+              <li><Link to="/contato" className="flex gap-3 transition hover:text-gold-light"><Send size={17} className="mt-0.5 shrink-0 text-gold" />Envie uma mensagem</Link></li>
             </ul>
           </div>
         </div>

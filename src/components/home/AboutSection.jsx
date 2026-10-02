@@ -18,10 +18,10 @@ export default function AboutSection() {
           <SectionTitle
             eyebrow="Quem somos"
             title="Uma igreja que ama a Deus e cuida de pessoas"
-            copy="Somos uma comunidade cristã formada por pessoas e famílias que desejam viver o evangelho, crescer na fé e servir ao próximo — com simplicidade, verdade e graça."
+            copy="Somos uma comunidade cristã formada por pessoas e famílias que desejam viver o evangelho, crescer na fé e servir ao próximo"
           />
 
-          <div className="mt-10 grid gap-x-8 gap-y-8 sm:grid-cols-2">
+          <div className="mt-10 grid gap-6">
             {values.map(({ icon, title, description }, i) => {
               const Icon = icons[icon];
               return (
